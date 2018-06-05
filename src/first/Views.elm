@@ -22,4 +22,8 @@ view model =
       ]
     , div [] 
       [ button [onClick Increment ] [ text " ++"]]
+    , div [] 
+      [ button [onClick Decrement ] [ text " --"]] 
+    , div [] 
+      [ button [onClick Reset ] [ text " RESET FIRST"]] 
     ]

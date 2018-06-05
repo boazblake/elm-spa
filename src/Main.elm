@@ -17,3 +17,4 @@ main =
 init : Navigation.Location -> (Model, Cmd Updates.Msg)
 init location =
   Models.init location ! []
+  
