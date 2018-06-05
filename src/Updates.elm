@@ -8,6 +8,7 @@ import Router exposing (screenFromLocation)
 import First.Updates
 import Second.Updates
 import Third.Updates
+import Login.Updates
 
 type Msg
   = Reset
@@ -15,6 +16,7 @@ type Msg
   | FirstEvent First.Updates.Msg
   | SecondEvent Second.Updates.Msg
   | ThirdEvent Third.Updates.Msg
+  | LoginEvent Login.Updates.Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg)
 update msg model =
@@ -24,9 +26,11 @@ update msg model =
     FirstEvent e ->
       wrapScreen FirstEvent <| First.Updates.update e model
     SecondEvent e ->
-          wrapScreen SecondEvent <| Second.Updates.update e model
+      wrapScreen SecondEvent <| Second.Updates.update e model
     ThirdEvent e ->
-          wrapScreen ThirdEvent <| Third.Updates.update e model
+      wrapScreen ThirdEvent <| Third.Updates.update e model
+    LoginEvent e ->
+      wrapScreen LoginEvent <| Login.Updates.update e model
     _ -> model ! []
 
 --helper to wraop screens

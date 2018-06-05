@@ -7,6 +7,7 @@ import Router exposing (Screen(..), screenFromLocation)
 import First.Models
 import Second.Models
 import Third.Models
+import Login.Models
 
 type alias Model =
   { globalCounter : Int
@@ -14,7 +15,8 @@ type alias Model =
    --screen specific
   , first: First.Models.Model
   , second: Second.Models.Model
-  , third: Third.Models.Model  
+  , third: Third.Models.Model
+  , login : Login.Models.Model  
   }
   
 init : Location -> Model
@@ -24,4 +26,5 @@ init location =
   , first = First.Models.init
   , second = Second.Models.init
   , third = Third.Models.init
+  , login = Login.Models.init
   }

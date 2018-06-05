@@ -5,7 +5,8 @@ import Navigation exposing (Location)
 -- Type defining the screens in the application
 
 type Screen
-  = Main
+  = Login
+  | Main
   | First
   | Second
   | Third
@@ -21,7 +22,8 @@ type alias Route =
 
 screens : List Route
 screens =
-  [ Route Main ""
+  [ Route Login "login"
+  , Route Main ""
   , Route First "first"
   , Route Second "second"
   , Route Third "third"

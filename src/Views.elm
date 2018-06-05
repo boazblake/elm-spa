@@ -8,6 +8,8 @@ import Router exposing (Screen(..))
 import First.Views
 import Second.Views
 import Third.Views
+import Login.Views
+
 
 type Align
   = Left
@@ -19,7 +21,8 @@ view model =
   case model.screen of
     Main ->
       div [ style [("border", "#000 1px solid")]] 
-        [ firstLink
+        [ logoutLink
+        , firstLink
         , secondLink
         , thirdLink
         , logo
@@ -31,6 +34,8 @@ view model =
       wrapScreen Updates.SecondEvent <| Second.Views.view model
     Third ->
       wrapScreen Updates.ThirdEvent <| Third.Views.view model
+    Login ->
+      wrapScreen Updates.LoginEvent <| Login.Views.view model
 
 logo : Html Msg
 logo =
@@ -41,6 +46,10 @@ logo =
           ]
       []
     ]
+
+logoutLink : Html Msg
+logoutLink =
+  block Center [ a [ href <| Router.url Login] [ text "LOGOUT !"]]
 
 backLink : Html Msg
 backLink =
