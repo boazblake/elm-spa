@@ -22,6 +22,7 @@ view model =
         [ firstLink
         , secondLink
         , thirdLink
+        , logo
         , copyright
         ]
     First ->
@@ -34,7 +35,7 @@ view model =
 logo : Html Msg
 logo =
   block Center
-    [ img [ src "/static/img/logo_full.png"
+    [ img [ src "/logo.svg"
           , style
             [("width", "100%")]
           ]
@@ -48,7 +49,7 @@ backLink =
 
 firstLink : Html Msg
 firstLink =
-  block Center [ a [ href <| Router.url First] [text "FIRST"] ]
+  block Left [ a [ href <| Router.url First] [text "FIRST"] ]
   
 
 secondLink : Html Msg
@@ -58,11 +59,11 @@ secondLink =
 
 thirdLink : Html Msg
 thirdLink =
-  block Center [ a [ href <| Router.url Third] [text "THIRD"] ]
+  block Right [ a [ href <| Router.url Third] [text "THIRD"] ]
 
 copyright : Html Msg
 copyright =
-  block Right [ text " co 2018 boazblake"]
+  div [] [ text " co 2018 boazblake"]
 
 block : Align -> List (Html Msg) -> Html Msg
 block align elems =
@@ -77,7 +78,8 @@ block align elems =
           "center"
   in
     div [ style 
-          [ ("width", "80%")
+          [ ("display", "inline")
+          , ("width", "33%")
           , ("margin", "10%")
           , ("text-align", textAlign)
           ]
